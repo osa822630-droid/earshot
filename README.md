@@ -365,6 +365,15 @@ Two skills ship in `skills/`. Copy or symlink them into `~/.claude/skills/` (or 
   recordings: sourcing with licence checks, a music edit, a JSON sound design, a deterministic mixer, measured QA, a
   multi-lens critique, mastering, credits and mux. earshot chooses, trims and verifies the sounds.
 
+### Claude web (claude.ai) upload
+
+Claude web has no CLI — you add a skill by uploading a `.zip`. Ready-to-upload zips ship in
+[`plugins/`](plugins/) (one skill per zip, `SKILL.md` at the zip root):
+[`plugins/earshot.zip`](plugins/earshot.zip) and [`plugins/real-sound.zip`](plugins/real-sound.zip).
+Download one, then on https://claude.ai go to **Settings → Capabilities → Skills → Upload skill** and pick the zip
+(see [plugins/README.md](plugins/README.md)). Rebuild the zips after editing `skills/` with
+`python scripts/build_skill_zips.py`.
+
 ## How good is it?
 
 Every number below comes with the command that measured it in [docs/VALIDATION.md](docs/VALIDATION.md). What
@@ -400,6 +409,7 @@ earshot/            the package: CLI, Python API, MCP server, CPU model wrappers
   data/             vocabulary + calibration stats, realness model weights, launch profile (numbers only, no media)
 skills/earshot/     agent skill: how to listen with earshot
 skills/real-sound/  agent skill: real-recordings soundtracks (scripts, templates, prompts, references)
+plugins/            upload-ready skill zips for Claude web (claude.ai); scripts/build_skill_zips.py rebuilds them
 docs/               VALIDATION, LIMITS, FORGE_V2, FIT, SFX, the motion-SFX study, launch-video playbook, design notes
 eval/               evaluation scripts and results per area (see eval/README.md)
 tests/              pytest (fast by default; --slow loads the models)
