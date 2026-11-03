@@ -367,12 +367,11 @@ Two skills ship in `skills/`. Copy or symlink them into `~/.claude/skills/` (or 
 
 ### Claude web (claude.ai) upload
 
-Claude web has no CLI — you add a skill by uploading a `.zip`. Ready-to-upload zips ship in
-[`plugins/`](plugins/) (one skill per zip, `SKILL.md` at the zip root):
-[`plugins/earshot.zip`](plugins/earshot.zip) and [`plugins/real-sound.zip`](plugins/real-sound.zip).
-Download one, then on https://claude.ai go to **Settings → Capabilities → Skills → Upload skill** and pick the zip
-(see [plugins/README.md](plugins/README.md)). Rebuild the zips after editing `skills/` with
-`python scripts/build_skill_zips.py`.
+Claude web has no CLI — you add skills by uploading a `.zip`. One ready-to-upload plugin file ships in
+[`plugins/`](plugins/): [`plugins/earshot-plugin.zip`](plugins/earshot-plugin.zip), containing **all** skills
+(`earshot/`, `real-sound/`, each with `SKILL.md` at its folder root). Download it, then on https://claude.ai go
+to **Settings → Capabilities → Skills → Upload skill** and pick the zip (see [plugins/README.md](plugins/README.md)).
+Rebuild it after editing `skills/` with `python scripts/build_plugin_zip.py`.
 
 ## How good is it?
 
